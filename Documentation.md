@@ -3,14 +3,14 @@
 ----------------------------------------------
 ## **Requirements Definition**
 ### **Functional Requirements**
-* **Data Retrieval:** The user must be able to retrieve data
-* **User Interface:** The program must have a good user interface for the user to interact with
-* **Data Display:** The user must be able to read the data from the API while remaining deficient from permissions to change the API
+* **Data Retrieval:** The application must allow users to retrieve specific data from an open-source API.
+* **User Interface:** The application must provide a user-friendly interface for efficient interaction.
+* **Data Display:** The application must display the retrieved data to the user in a readable format.
 ### **Non-Functional Requirements**
-* **Performance:** The system needs to run smoothly on any device, even ones that are extremely old and unstable.
-* **Reliability:** The system and data must be extremely reliable in order to provide users with the best information.
-* **Usability:** The system/user interface should be very easy to navigate
-* **Accessibility:** The program should be made very accessible
+* **Performance:** The application should perform efficiently and run smoothly on any device, including older and less stable systems.
+* **Reliability:** The system and data provided must be highly reliable to ensure users receive the most accurate and up-to-date information.
+* **Usability:** The user interface should be intuitive and very easy to navigate, even for users with limited technical expertise.
+* **Accessibility:** The application should be easily accessible to all users.
 ## **Determining Specifications**
 ## **Design**
 ## **Development**
