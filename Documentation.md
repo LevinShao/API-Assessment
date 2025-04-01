@@ -28,7 +28,9 @@
 
    The user needs to be able to easily navigate the application even if they have never encountered it before, hopefully even without the manual.
 * **Inputs & Outputs:** What inputs will the system need to accept and what outputs will it need to display?
+The system will need to accept mainly number inputs since the program uses numbers to control and direct the program based on the user's options.
 * **Core Features:** At its core, what specifically does the program need to be able to do?
+The program need to show the us
 * **User Interaction:** How will users interact with the system (e.g. command-line, GUI?) and what information will it need to provide to help users navigate?
 * **Error Handling:** What possible errors could you face that need to be handled by the system?
 ### **Non Functional Specifications**
@@ -37,6 +39,17 @@
 * **Reliability:** 
 What could perhaps not crash the whole system, but could be an issue and needs to be addressed? Data integrity? Duplicate data? API retrieval crash?
 ## **Design**
+### **Gantt Chart**
+![alt text](images/Gantt%20Chart.png)
+
+|Variable|Data Type|Format for Display|Size in Bytes|Size for Display|Description|Example|Validation|
+|--------|---------|------------------|-------------|----------------|-----------|-------|----------|
+|Movie Name|string|text|50|50|the name of the movie|Fight Club|Must be on TVDb|
+|Movie ID|float|number|8|4|The ID of the movie on TVDb|550|must be a number|
+|Movie Genre|string|text|20|20|genre of the movie|Action|must be either °C|
+|Movie Cast|string|text|100|100|cast for the movie|Brad Pitt as Tyler Durden|must be valid cast|
+### Flowcharts and Algorithm
+**Pseudocode**
 ## **Development**
 ## **Integration**
 ## **Testing and Debugging**
