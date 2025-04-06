@@ -32,7 +32,7 @@ However, TMDb APIs are subjected to rate limits, so be careful of that. But no w
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/tmdb-movie-explorer.git
+   git clone https://github.com/LevinShao/tmdb-movie-explorer.git
    cd tmdb-movie-explorer
    ```
 2. **Install dependencies from requirements.txt**
