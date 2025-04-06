@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Flowchart2"/>
+        <attribute name="authors" value="levin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-05 01:20:37 &#19979;&#21320;"/>
+        <attribute name="created" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTAzOzA0OjQ2OjEyIOS4i+WNiDs0MzQ4Nw=="/>
+        <attribute name="edited" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTA1OzAxOjIwOjM3IOS4i+WNiDsyOzQzNTk0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="BEGIN" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Input movie ID: &quot;" newline="True"/>
+            <input variable="movieID"/>
+            <if expression="movieID != number">
+                <then>
+                    <output expression="&quot;Invalid ID&quot;" newline="True"/>
+                </then>
+                <else>
+                    <call expression="Database"/>
+                    <if expression="data = empty">
+                        <then>
+                            <output expression="&quot;No data available&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="movieTitle" newline="True"/>
+                            <output expression="releaseDate" newline="True"/>
+                            <output expression="voteRating" newline="True"/>
+                            <output expression="voteCount" newline="True"/>
+                            <output expression="ageCertification" newline="True"/>
+                            <output expression="runtime" newline="True"/>
+                            <output expression="languages" newline="True"/>
+                            <output expression="genres" newline="True"/>
+                            <output expression="plot" newline="True"/>
+                            <output expression="budget" newline="True"/>
+                            <output expression="boxOffice" newline="True"/>
+                            <output expression="director" newline="True"/>
+                            <if expression="cast != empty">
+                                <then>
+                                    <output expression="&quot;Top cast: &quot;" newline="True"/>
+                                    <for variable="cast" start="1" end="5" direction="inc" step="1">
+                                        <output expression="actor + &quot; as &quot; + character" newline="True"/>
+                                    </for>
+                                </then>
+                                <else>
+                                    <output expression="&quot;No cast data available&quot;" newline="True"/>
+                                </else>
+                            </if>
+                            <output expression="productionCompanies" newline="True"/>
+                            <assign variable="movie" expression="searchHistory"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

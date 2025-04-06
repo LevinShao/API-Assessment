@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Flowchart1"/>
+        <attribute name="authors" value="levin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-03 04:46:08 &#19979;&#21320;"/>
+        <attribute name="created" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTAyOzA4OjQxOjI0IOS4i+WNiDs0MzQ4OA=="/>
+        <attribute name="edited" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTAzOzA0OjQ2OjA4IOS4i+WNiDsxOzQzNjAw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="BEGIN" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Enter movie title: &quot;" newline="True"/>
+            <input variable="movieTitle"/>
+            <if expression="movieTitle = empty">
+                <then>
+                    <output expression="&quot;Movie title must not be empty&quot;" newline="True"/>
+                </then>
+                <else>
+                    <call expression="Database"/>
+                    <if expression="Database = empty">
+                        <then>
+                            <output expression="&quot;No movies found&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <for variable="movie" start="1" end="20" direction="inc" step="1">
+                                <output expression="movieTitle" newline="True"/>
+                                <output expression="movieID" newline="True"/>
+                                <output expression="movieReleaseDate" newline="True"/>
+                            </for>
+                            <assign variable="movie" expression="searchHistory"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="START" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+</flowgorithm>

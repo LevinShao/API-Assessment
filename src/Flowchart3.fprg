@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Flowchart3"/>
+        <attribute name="authors" value="levin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-04-03 05:53:18 &#19979;&#21320;"/>
+        <attribute name="created" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTAzOzA1OjM4OjQ4IOS4i+WNiDs0MzQ5OA=="/>
+        <attribute name="edited" value="bGV2aW47TEVNT05QQzsyMDI1LTA0LTAzOzA1OjUzOjE4IOS4i+WNiDsyOzQzNjAx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="BEGIN" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="genreList" newline="True"/>
+            <output expression="&quot;Select a genre from above: &quot;" newline="True"/>
+            <input variable="genreID"/>
+            <if expression="genreID != genreList">
+                <then>
+                    <output expression="&quot;Invalid genre ID. Please select one from the genre list&quot;" newline="True"/>
+                </then>
+                <else>
+                    <call expression="Database"/>
+                    <if expression="data = empty">
+                        <then>
+                            <output expression="&quot;There are no movies within this genre&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Genre results: &quot;" newline="True"/>
+                            <for variable="movie" start="1" end="20" direction="inc" step="1">
+                                <output expression="movieTitle" newline="True"/>
+                                <output expression="movieID" newline="True"/>
+                                <output expression="releaseDate" newline="True"/>
+                            </for>
+                            <assign variable="movie" expression="searchHistory"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
