@@ -6,7 +6,8 @@ def main():
     app = TMDbMovieProgram(api_key="2b556e2cf294ec2f4a6b5fa4770f3732") # API key
     
     # introduction
-    print("\nWelcome! This is a movie database application made from the TMDb API")
+    print("\nWelcome to the TMDb Movie Database Explorer!")
+    print("This is a movie database application powered by the TMDb API")
     print("\nIt is heavily recommended for you to use the help guide first, since some parts could be confusing on its own")
     print("Access the help guide by entering '8' below")
     time.sleep(2)
