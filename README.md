@@ -68,4 +68,6 @@ However, TMDb APIs are subjected to rate limits, so be careful of that. But no w
 
 ## **Thanks for Choosing the TMDb Movie Database Explorer**
 
-Once again, thank you for using this application! This took a lot of time and effort to develop, I would appreciate if you enjoyed using it! Without further ado, you can get started.
+Once again, thank you for using this application! This took a lot of time and effort to develop, I would appreciate if you enjoyed using it! 
+
+Without further ado, **get started and have fun!**
