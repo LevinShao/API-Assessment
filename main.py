@@ -1,9 +1,24 @@
 import time # just purely for aesthetics, nothing else
+# also, time (as well as datetime) are both part of the Python Standard Library and are installed by default.
+# they are included and pre-installed with Python by default, meaning that you won't have to install them at all
+# therefore they will not be included in the requirements.txt file since it should only contain third-party packages
+import os
+from dotenv import load_dotenv  # Add this import
 from methods import TMDbMovieProgram # Import the program from functions.py (integration)
+
+# Load environment variables
+load_dotenv()  # This loads from .env file
 
 def main():
     """The main user interface for the program"""
-    app = TMDbMovieProgram(api_key="2b556e2cf294ec2f4a6b5fa4770f3732") # API key
+    api_key = os.getenv("API_KEY")
+    if not api_key:
+        print("Error: API key not found.")
+        return
+    
+    app = TMDbMovieProgram(api_key=api_key)  # Now using the env variable
+    
+    # Rest of your code remains the same...
     
     # introduction
     print("\nWelcome to the TMDb Movie Database Explorer!")

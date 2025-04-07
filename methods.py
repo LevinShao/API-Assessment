@@ -1,5 +1,8 @@
 import requests # essential if you want to work with APIs
 from datetime import datetime # for search history time-logging
+# also, datetime (as well as time) are both part of the Python Standard Library and are installed by default.
+# they are included and pre-installed with Python by default, meaning that you won't have to install them at all
+# therefore they will not be included in the requirements.txt file since it should only contain third-party packages
 
 class TMDbMovieProgram: # will import this whole thing to main.py
     def __init__(self, api_key):
