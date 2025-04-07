@@ -35,6 +35,15 @@ However, TMDb APIs are subjected to rate limits, so be careful of that. But no w
    git clone https://github.com/LevinShao/tmdb-movie-explorer.git
    cd tmdb-movie-explorer
    ```
+   OR:
+   **Press this green button called Code in GitHub**
+   ![Image 1](images/Instructions%20for%20Installation/Instruction.png)
+   **You should now see an option to download a ZIP file of the repository. Click it and a ZIP file should download**
+   
+   ![Image 2](images/Instructions%20for%20Installation/Instruction2.png)
+   
+   **Then, extract the zip file.**
+
 2. **Install dependencies from requirements.txt**
     ```
     pip install requests
