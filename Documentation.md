@@ -1,6 +1,5 @@
-# **11ASE 2025 Task 1 - TMDb Movie Application**
+# **11ASE 2025 Task 1 - TMDb Movie Database Explorer**
 ## By **Levin Shao**
-----------------------------------------------
 ## **Requirements Definition**
 ### **Functional Requirements**
 * **Data Retrieval:** What does the user need to be able to view in the system? 
@@ -261,7 +260,8 @@ First of all, the program initiates. Then the program displays the menu options 
 **view_search_history** function: pretty simple. If chosen as the user's desired option, try accessing the search history log. If history is empty, display "No history". Otherwise, for each entry in the search history, display as "Entry Query", Searched up on "Specific Timestamp".
 
 **help_guide** function: the most simple one out of all functions here. This function didn't even take me 30 minutes to create. It literally just displays a textual-based how-to guide on using the program. This function only uses the most basic "print" statement, and nothing else.
-
+### **Structure Chart**
+![Structure Chart](images/StructureChart.png)
 ### **Flowcharts**
 #### **Flowchart 1: search_movies function**
 ![Flowchart 1](images/Flowcharts/Flowchart1.png)
@@ -2008,5 +2008,67 @@ class TMDbMovieProgram: # will import this whole thing to main.py
 ![Flowchart 1](images/bruhmoment.png)
 - and that's it, the program is finally finished!
 ## **Testing and Debugging**
-## **Installation**
+**March 4th, 2025:** Began Documentation
+
+Today is the first day of making the program! I did not begin developing yet as I was planning to do some parts of the documentation first before I begin the main coding process, so I just set up the documentation and added the subheadings, and also did some of the Requirements Definition, albeit not fully completed.
+
+**March 10th, 2025:** Changed the API and Program Idea
+
+So I discovered that the previous API was terrible. Its rate limit was way more strict, and would often go offline at times. Therefore, I decided to complete ditch it because of how bad it was, and so I chose a new API, this one, and reworked my plans for the program. TMDb was much better so I settled with it. But this also meant that I had to rewrite the requirements definition because the old API was completely different in purpose to my current API which is based on movies. But it didn't take a long time and at this point I've finished writing up the functional requirements. Non-functional requirements left to go.
+
+**March 11th, 2025:** Fully finished Requirements Definition
+
+Today I fully finished writing up the requirements definition. I'm pretty satisfied with it, and I feel like nothing else needs to be changed. It's now time to move on to the next part: Determining Specifications.
+
+**March 17th, 2025:** Began working on Determining Specifications
+
+Today I just planned and wrote the functional specifications part of the Determining Specifications section for the program based on the template issued in Gitbook. That's all.
+
+**March 18th, 2025:** Fully finished writing Determining Specifications
+
+Today I finished writing all the specifications for my program. I am quite happy with this and now I can finally move on to more challenging parts such as design and development.
+
+**March 24th, 2025:** Created and finished the Gantt Chart
+
+Today I have officially started working on the design process, and to get started I have worked on and finished the Gantt Chart. The Gantt Chart was quite easy to make, and it didn't take me much time to make it. I was able to finish within 30 minutes, take a screenshot of it and upload it here. To spend the remaining time, I have been testing the API as well as some Python code related to it just to see if it's fully functional.
+
+**March 25th, 2025:** Began development
+
+It is now officially time to write the formal code for my program! First things first, I imported the **requests** module so that the API can actually send HTTP requests to the database. I started by storing the API key and Base URL for TMDb as basic variables, and began working on my first function, a very basic **search_movies** function. This function is not yet fully developed, but at least it worked, so I'm happy.
+
+I've also spent lots of time studying this API from the TMDb API Documentation, looking at what's allowed and what's not allowed for usage, trying to brainstorm ideas for options that can be used by the program. Currently I have 5 ideas in mind, but more are soon to be brainstormed and developed, because everyone knows you need way more than that in order to get a good mark.
 ## **Maintenance**
+### 1. **Explain how you would handle issues caused by changes to the TMDb Movie API over time.**
+Depends on what type of issue it is, to be honest. First of all, I would subscribe to the TMDb API changelog to take attention of any upcoming API changes. Based on the severity of the issue, I would rewrite the code for the program that fits the newly-changed API. If the code can't be rewritten due to whatever reason, then I would search through the web and maybe use some third-party applications to debug issues. The most damaging one that I'm really worried about, however, is TMDb upgrading their API to a paid plan instead of a free plan, or increasing the rate limit for free APIs. Either way both of these issues shouldn't happen any time soon, but if they do, then we might have to shut the whole program down, sadly, or switch to a different API. (I really can't afford a monthly subscription for an API just to keep this program, which nobody uses, alive. I'm sorry)
+### 2. **Explain how you would ensure the program remains compatible with new versions of Python and libraries like requests and matplotlib.**
+The best option I have in mind right now is this:
+- Use pyproject.toml with version ranges. Example:
+```
+[project]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25,<3.0",
+]
+```
+But new versions of Python and the request library probably won't affect me much since I could just upgrade the compatibility at any time. If that fails, the new libraries should always have older versions within them that are still usable, so it won't actually affect the program that much, I suppose.
+### 3. **Describe the steps you would take to fix a bug found in the program after deployment.**
+I would use the Python Debugger to find and debug any bug that still remains in the code after deployment. The "problems" tab would help me a lot in this process. During the debugging period, I would be careful to read through all lines of code and improve on the ones I think are not decent enough. After debugging, I would release the new and bugless program to the public as an update. I guess I could also use the decomposition method, but it'll slightly take more time than usual methods, so that's a secondary option.
+### 4. **Outline how you would maintain clear documentation and ensure the program remains easy to update in the future.**
+I will update the README and any other instruction files frequently after deployment, and take note of anything that will be changed or improved in the future. As soon as an update for a library or module comes around (e.g. for Python or Requests) then I will update the README file and the Installation Procedure as soon as possible. The program will always remain easy to update in the future as I will be making suitable adjustments based on these updates.
+## **Final Evaluation**
+### 1. Evaluate the current functionality of the program in terms of how well it addresses the functional and non-functional requirements. 
+I had put in quite a considerable amount of effort into the code when it comes to addressing the functional and non-functional requirements. The program had addressed most, if not all of the functional requirements. The program was successful in accurately showing correct information about movies through its get_movie_details method (option 2 on client-side). For other options, the program satisfies the requirement of “Data Display” as it neatly formats and displays the results into an orderly table, and also appropriately handles errors by displaying error messages. The user interface was also simple and easy-to-use, making it even better.
+
+For the non-functional requirements, I also think I did a decent job. The program can run easily and efficiently on any device (even though this can’t really be verified because I don’t have an old device to test it, but anyone knows that a simple CLI program like this with only a few hundred lines of code and doesn’t use anything performance-heavy in the process would not crash a computer. If it does crash then blame the computer at that point). The program is reliable since it doesn’t mess with the API’s data in any way, providing the users with only the most reliable information. The program is also quite usable and accessible since it doesn’t involve lots of steps in order to run it.
+### 2. Discuss areas for improvement or new features that could be added.
+There are a few ways I could improve the program in the future. I could improve on error handling but adding a tougher layer of validation for user inputs, such as handling invalid movie IDs and queries, as well as adding a retry mechanism for failed API requests. Also, the program's performance could be drastically improved (although the current performance already decent enough) if I cache API responses locally to reduce redundant API calls, via methods such as pickle and sqlite3. Lastly, I could remove the current limit of movies that are displayed in results tables, and simply add a pagination system where the user could confirm to "Show More Results", also this could be much work.
+
+In terms of new features, I could implement a watchlist functionality where it  allows users to add movies to a watchlist, so that they don't forget about what movies they plan to watch in the future, and keep track of that. I could also add more filtering options, such as filter movies by year, rating, etc.
+### 3. Evaluate how the project was managed throughout its development and maintenance, including your time management and how challenges were addressed during the software development lifecycle.
+I guess I could somewhat improve my time management, but overall I think I did alright in terms of managing the project wisely. I had more trouble with things during the first half of the production process, leading to me having to do more work for the second half of the process, sometimes even having to stay up late night just to develop the program. In terms of challenges, there weren’t that many issues I’ve faced during the development process, but one issue that significantly stood out to me was the API key issue. 
+
+You see, API keys are best to be kept hidden in case of attackers using your key to not only attack the TMDb database but also your personal data. Therefore to fix this, I decided to not keep my API exposed and add it to a .env file, which will be gitignored, to hide the API key, also using the os and dotenv libraries. Initially this was successful and I was still able to use the program functionally, it wasn’t so successful on the client-side. Since .gitignore removes a file from GitHub, that means when others download and use my program, they won’t have access to the API key since the .env file wouldn’t be downloaded inside the package. A typical “workaround” for this is to just remove it from the .gitignore, but GitHub doesn’t have the ability to just hide files by itself without .gitignore, meaning that others will still have full access to look inside the .env and see the API key.
+
+This dilemma had me stuck for around 2 hours. Web results say that the best way to fix this is to add the API key to a backend proxy which I will have to host, something I HAVE ABSOLUTELY NO IDEA HOW TO USE. Not only because of this but since I was almost reaching the due date, I have no time to figure out how to host and use a backend proxy. At the end of the day, I just decided to revert all changes and just keep it the way it is right now, unhidden. As much as I love security, I must put functionality at the top of everything.
+
+This is the only major problem I faced that left me clueless and eventually surrendering to it. But other than that, I have faced little to no issues at all. Some trial and error processes are used, but they were all fixed after just 20 minutes or so.
