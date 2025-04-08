@@ -1,5 +1,5 @@
 # **TMDb Movie Database Explorer**
-![Python](https://img.shields.io/badge/python-3.11-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 A warm welcome to the TMDb Movie Database Explorer! This is a top-tier command-line application that interacts with The Movie Database (TMDb) API to search, browse, and discover movies. With this application, you can discover ANY movie. You could find detailed information about a movie, find a new movie to watch at home, discover upcoming releases to your nearby cinema, or even find your new favorite movie of all time!
