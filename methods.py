@@ -272,7 +272,7 @@ class TMDbMovieProgram: # will import this whole thing to main.py
         print("\nSearch History:")
         # Loop through each entry in the search history storage, and provide details for each
         for idx, (query, time) in enumerate(self.search_history, 1):
-            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}") # Formatting: Year-Month-Day Hour-Minute-Seconds
 
     def help_guide(self):
         """Option 8: A simple help guide for beginners, made using ONLY the print function"""

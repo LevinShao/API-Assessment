@@ -54,10 +54,10 @@ What could perhaps not crash the whole system, but could be an issue and needs t
   A huge issue that I've noticed which could occur in the program are incomplete data in the database. For example, minor movies on TDMb that nobody watches could be missing information such as a release date, an age classification (very common) or cast information. To fix this, I've made changes in the code so that when there are incomplete information detected, the program would output "No data available" to the user. However, these are mostly issues with the TMDb movie database itself and not really any of the program's fault.
 ## **Design**
 ### **Gantt Chart**
-![Gantt Chart](images/Gantt%20Chart.png)
+![Gantt Chart](images/GanttChart.png)
 
 | Variable | Data Type | Format for Display | Size in Bytes | Size for Display | Description | Example | Validation |
-|----------|-----------|--------------------|---------------|------------------|-------------|---------|------------|
+|---|---|---|---|---|---|---|---|
 | Movie ID | integer | number | 4 | 10 | TMDb movie identifier number | 550 | Must be a positive integer |
 | Movie Title | string | text | 100 | 50 | Title of the movie | Fight Club | Max 100 characters |
 | Release Date | string | YYYY-MM-DD | 10 | 10 | Release date of the movie | 1999-09-10 | Valid date format |
@@ -259,7 +259,7 @@ First of all, the program initiates. Then the program displays the menu options 
 
 **view_search_history** function: pretty simple. If chosen as the user's desired option, try accessing the search history log. If history is empty, display "No history". Otherwise, for each entry in the search history, display as "Entry Query", Searched up on "Specific Timestamp".
 
-**help_guide** function: the most simple one out of all functions here. This function didn't even take me 30 minutes to create. It literally just displays a textual-based how-to guide on using the program. This function only uses the most basic "print" statement, and nothing else.
+**help_guide** function: the most simple one out of all functions here. This function didn't even take me 30 minutes to create. It literally just displays a textual-based how-to guide on using the program. This function only uses the most basic "print" statement, and nothing else. **Also, this will be the only search query that won't be logged in the search history.**
 ### **Structure Chart**
 ![Structure Chart](images/StructureChart.png)
 ### **Flowcharts**
@@ -267,6 +267,7 @@ First of all, the program initiates. Then the program displays the menu options 
 ![Flowchart 1](images/Flowcharts/Flowchart1.png)
 #### **Flowchart 2: get_movie_details function**
 If this image is hard to view properly due to the sheer amount of outputs, you can just open the .fprg file in the src folder and view it inside Flowgorithm.
+
 ![Flowchart 2](images/Flowcharts/Flowchart2.png)
 #### **Flowchart 3: search_by_genre function**
 This is almost identical to the first flowchart since I based off the code for this function from the search_movies function, so yeah.
@@ -318,8 +319,8 @@ if __name__ == "__main__":
 ```
 **Key Changes & Evaluation:**
 - Removed all testing code and began to actually work on the program.
-- At the end of the day, came up with a very basic movie search function. Lots of changes are to be made.
-### Development Progress #3
+- At the end of the day, came up with a very basic movie search function. I'm quite happy because at least the function works well, but I know that lots of changes are to be made.
+### Development Progress #3:
 ```
 import requests
 
@@ -503,6 +504,7 @@ if __name__ == "__main__":
     main()
 ```
 **Key Changes & Evaluation:**
+- Added a brand new function! This new function is key and will be key. Out of all the functions that exist in the program, I'd argue that this one will be used the most, because it is the most useful. The new **Get Movie Details** function is revolutionary, and what it does is basically just show you specific information about a specific movie. Currently it only has a few sections and not too informative, but more are to be added very soon.
 - Made massive changes to the movie search function. You can now see the movie's TMDb ID when searched up, alongside their title and release date. This is done because the new Get Movie Details function requires you to input a movie's TMDb ID instead of its title, since if you make it search by title, multiple movies with the same name could cause conflict. To fix this, we will just make it search by ID, since each movie has a different ID and each ID is unique to a movie.
 - Also, I found a way to neatly format the results into a clear table. I made it so that the new formatting is like a table with 3 columns, each column separated by a line. First column shows the ID, second shows the title, and third shows the release date. I did this because apparently you get more marks if the results are neat looking? Anyways, at least it looks much more satisfying to the eye and can tick off some non-functional requirements.
 - Most importantly, **a brand new user interface.** How could one call their program a program without it having a user interface? This user interface currently only had these 3 options at the time of creation, but more are to be added later. This is a huge step-up in the program's functionality.
@@ -1263,7 +1265,7 @@ if __name__ == "__main__":
 **Key Changes & Evaluation:**
 * Introducing... the search history! The search history is a new revolutionary function that allows you to access everything you have done with the program when you're using it. In case you've forgotten about the details of a specific movie, forgot about its ID as well, and isn't bothered to look it up again, no worries! Just go to the search history to access all your memories.
 * Massively improved the get_movie_details function to include way more things about a movie. That means now you can also see its age classification, genres, languages, budget, box office, director, and production companies! Also, increased the top cast limit from 3 to 5, meaning that previously the program would only display 3 actors playing for the most central characters of the movie. Now it's gone up to 5. Hooray!
-* This is the part when I thought I was done with the code, only to realise I have way more work to do after seeing integration.
+* This is the part when I thought I was done with the code, only to realise I have way more work to do after seeing the integration requirements.
 ## **Integration**
 ### Development Progress #8: **MAJOR UPDATE**
 From this point onwards, I have separated my code (previously all written in a basic main.py file) into 2 files, a new and much more simple main.py file, which now just contains the code for the user interface; and methods.py, containing ALL the functions for the code. methods.py was imported to main.py so that the program works. I did this to satisfy the integration requirements.
@@ -1603,6 +1605,7 @@ class TMDbMovieProgram: # will import this whole thing to main.py
 - **Side note:** Before I created methods.py and the TMDbMovieProgram class, I've always called these definitions (e.g. search_by_genre, get_movie_details) **functions**. But after I created them, I'll start calling them **methods** since methods are functions that are inside a class, and have the **self** parameter with them. Outside a class they're called functions, and inside they're called methods. SO I'll start being more technical with these terms.
 - This was the a huge pain in the butt and I'm not joking. Maybe I just need to learn more about classes and init but this was absoluted pain.
 ### Development Progress #9: **FINAL UPDATE & CURRENT CODE**
+**main.py**
 ```
 import time # just purely for aesthetics, nothing else
 from methods import TMDbMovieProgram # Import the program from functions.py (integration)
@@ -2005,38 +2008,73 @@ class TMDbMovieProgram: # will import this whole thing to main.py
 **Key Changes & Evaluation:**
 - Added a help guide for beginners using the program who may find themselves stuck trying to figure out how to use it (no one would be stuck trying to figure out how to use it unless they're dyslexic. This program is SO easy to use since I tried to make the error handling messages and instructions AS HELPFUL AS POSSIBLE, but I just had to make a help guide just in case, because you know, **USABILITY IS EVERYTHING**)
 - and also because...
-![Flowchart 1](images/bruhmoment.png)
+
+    ![Flowchart 1](images/bruhmoment.png)
 - and that's it, the program is finally finished!
 ## **Testing and Debugging**
-**March 4th, 2025:** Began Documentation
-
+### **March 4th, 2025:** Began Documentation
 Today is the first day of making the program! I did not begin developing yet as I was planning to do some parts of the documentation first before I begin the main coding process, so I just set up the documentation and added the subheadings, and also did some of the Requirements Definition, albeit not fully completed.
-
-**March 10th, 2025:** Changed the API and Program Idea
-
+### **March 10th, 2025:** Changed the API and Program Idea
 So I discovered that the previous API was terrible. Its rate limit was way more strict, and would often go offline at times. Therefore, I decided to complete ditch it because of how bad it was, and so I chose a new API, this one, and reworked my plans for the program. TMDb was much better so I settled with it. But this also meant that I had to rewrite the requirements definition because the old API was completely different in purpose to my current API which is based on movies. But it didn't take a long time and at this point I've finished writing up the functional requirements. Non-functional requirements left to go.
-
-**March 11th, 2025:** Fully finished Requirements Definition
-
+### **March 11th, 2025:** Fully finished Requirements Definition
 Today I fully finished writing up the requirements definition. I'm pretty satisfied with it, and I feel like nothing else needs to be changed. It's now time to move on to the next part: Determining Specifications.
-
-**March 17th, 2025:** Began working on Determining Specifications
-
+### **March 17th, 2025:** Began working on Determining Specifications
 Today I just planned and wrote the functional specifications part of the Determining Specifications section for the program based on the template issued in Gitbook. That's all.
-
-**March 18th, 2025:** Fully finished writing Determining Specifications
-
+### **March 18th, 2025:** Fully finished writing Determining Specifications
 Today I finished writing all the specifications for my program. I am quite happy with this and now I can finally move on to more challenging parts such as design and development.
-
-**March 24th, 2025:** Created and finished the Gantt Chart
-
+### **March 24th, 2025:** Created and finished the Gantt Chart
 Today I have officially started working on the design process, and to get started I have worked on and finished the Gantt Chart. The Gantt Chart was quite easy to make, and it didn't take me much time to make it. I was able to finish within 30 minutes, take a screenshot of it and upload it here. To spend the remaining time, I have been testing the API as well as some Python code related to it just to see if it's fully functional.
-
-**March 25th, 2025:** Began development
-
+### **March 25th, 2025:** Began development
 It is now officially time to write the formal code for my program! First things first, I imported the **requests** module so that the API can actually send HTTP requests to the database. I started by storing the API key and Base URL for TMDb as basic variables, and began working on my first function, a very basic **search_movies** function. This function is not yet fully developed, but at least it worked, so I'm happy.
 
 I've also spent lots of time studying this API from the TMDb API Documentation, looking at what's allowed and what's not allowed for usage, trying to brainstorm ideas for options that can be used by the program. Currently I have 5 ideas in mind, but more are soon to be brainstormed and developed, because everyone knows you need way more than that in order to get a good mark.
+### **March 27th, 2025:** Improved main.py
+Today I improved the code for main.py by adding a new function that fetches data for other functions. This made the process of retrieving data within functions much more convenient and efficient. This new function will set a backbone to the functionality of all the other functions, since it handles the important process of fetching data from the TMDb database. Also, added some new error handling messages and fallback, as well as made the instructions clearer so users don't get confused when using the program.
+### **March 29th, 2025:** Added a new function and an user interface
+Today was very important. It's a Saturday, meaning that I can stay at home and work on the project for a VERY long time, hours if I want to. So I began working on the program and the outcomes were pretty decent. The program was heavily improved. 
+
+First of all, I decided to make a user interface for the program, because I knew that without an user interface for program interaction, then the program cannot be used and therefore I will get a zero. So I did that. It was completed in around 40ish minutes and I was quite happy with the result. But I still had a lot of time left, so I decided to make a new function for the program, since at this point I've barely gotten started and there's less than 2 weeks left. So, I began development on the second option, the **get_movie_details** function. But when I was halfway through, a thought popped up in my mind, and it wasn't good.
+> **What if there are movies with the same names? Wouldn't that cause conflict within the program?**
+
+This was a huge issue, but it made sense. There's no way the program can determine which movie the user is talking about specifically if there are multiple movies with the same name, unless if the program asks the user for more specific information about their movie, such as the year/release date, but that would be way too complicated for the user. But soon I was able to find a workaround to this. I can make the program search for the movie based on their TMDb movie ID instesad of the title, because all IDs are unique to different movies! Duplicate IDs won't exist! I spent 2 minutes complimenting myself as a genius and patted myself on the back, then got back to work. **But then, another terrifying thought popped up in my mind.**
+> **How would the user be able to know the ID of a movie?**
+
+I panicked again for a few minutes but then realised, it's simple. And I had no reason to panic. I can just add a new feature to the search_movies function that displays not only the movie title and the release date, I could also make it show the ID of the movie! And so I got back to work. But then, one final thought popped up into my mind, although this one was way less terrifying than the previous two thoughts, and was easily rectified.
+> **How would the user know that the numerical integer is supposed to be the movie's ID?**
+
+I wasn't mortified at this thought unlike before, simply because the solution was easy. We can just tell the user what it is! Therefore, I decided rework the part of the code where it shows the output to the users, transforming this plain formatting into a very neat table. The table has 3 columns, the leftmost being the ID, middle being movie title, and rightmost being the release date. Each column being separated by a divider line. At the top of the table, I added extra clarification for what each column meant (ID | Title | Release Date) so the user doesn't get confused. After all, the main goal is that no one gets confused when using the program.
+
+And after I was done with these changes, I breathed a sigh of relief and decided to call it a day. **Total time spent: ~3 hours**
+### **March 30th, 2025:** New functions as well as more theory
+Today's productivity was split into two halves: morning and afternoon, since I worked on the project from 10am - 11:30am, and from 2pm - 4pm.
+
+**Morning:** Found a way to create not just one, but two brand new functions, respectively being the function to view the list of (currently) the most popular movies on TMDb, and the function to view upcoming movies that are soon to come to cinemas worldwide. Usually I would've just created a single function and called it a day, so why did I create two? Because that's when I realised time will soon run out and if I don't hurry up with development then I might be done for.
+
+**Afternoon:** No more coding, but more theory. Created my first flowchart which is based on the search_movies function, screenshotted it and uploaded it here. I was contemplating on whether if I should create my second flowchart which would be based on the get_movie_details function, since it wasn't fully developed yet and definitely would be improved later, but I created it anyways just for this version of the function and saved it as a file, but didn't screenshot and upload yet just in case for change. Afterwards, I began to work on the data dictionary, completing all the sections that are currently included in the code. Just like the flowchart, this data dictionary has loads to improve on. Now, you might be wondering how doing just these took me more than 2 hours to complete. Well the answer is simple. **Procrastination.**
+### **March 31st, 2025:** Added 2 new functions
+Today I worked on more of the code and was able to add another 2 new functions into the program. The first function is a search filter that allows users to search movies by genre. The second function is a recommendations system that gives users recommendations for movies that are similar in genre or style to a specific movie of their choice. Other than that nothing much happened.
+### **April 1st, 2025:** Added search history and improved get_movie_details function
+Today I worked on more code and created: **the search history.** I thought the search history would be difficult to create before I actually built it so I was a bit scared, but it didn't turn out to be as bad as I thought afterwards. To create the search history, first I imported the datetime module since datetime is very good at logging timestamps. Then I created a container variable that would store each search query that the user searches up inside of it. To achieve this, at the end of each function, **search_history.append** will be added to the end of each of these functions, so when the user gets their desired results, it would also add this query into the search history list. Afterwards, I was able to create a fully functional search history system in only a few lines of code. It was truly easier than I expected it to be.
+
+I was also able to research and rework the **get_movie_details** function. Previously, this function could only display a few categories of information. Now I added much more categories to it so that it's actually very informative and gives you loads of data about a movie. This function is now perfect.
+### **April 2nd, 2025:** Moved all the functions to methods.py for integration
+Today I moved all the functions to another Python file and only kept the main user interface in main.py. Why did I do this? For integration purposes, of course. Methods.py now contains all the functions, and main.py contains the user interface. I have made significant changes in order to suit methods.py's requirements, including adding a class and importing this class to main.py, and also adding the self parameter inside every function, but this will get too long if I explain them in detail one by one, so I won't, but you should get the idea. This process was very difficult and painful, and it was finally made successful after almost an hour of searching through the web. However, good news is that at this point, the program is very soon to be completed.
+### **April 3rd, 2025:** Added the help guide
+Today I made some final changes to my program. I was looking through the task notification when I realised that one of the requirements is allowing users to ask for help. That is why I decided to add the help guide option. To guide users with using the program. This process was extremely simple and didn't take me much time to make since the function is almost completely made using the **print** statement. After completing this process, the code is **OFFICIALLY** complete! 🎉🎉🎊🎊
+### **April 4th, 2025:** Wrote README and Installation procedure
+Today I wrote a comprehensive README guide for the program. Inside the README, I also wrote the installation procedure. I tried to make the README as comprehensive as possible, including lots of sections such as the features of the program, how it works, custom configuration, etc etc.
+### **April 5th, 2025:** Finished pseudocode, flowcharts and data dictionary
+Today was just some simple theory. Based on the current code, which I'm determined to not make anymore changes due to how good it already is, I was able to complete the pseudocode as well as explain what each function does in the pseudocode. I was also able to finish the remaining two flowcharts (I made edits to the second flowchart representing the get_movie_details function due to the new features I added to it on April 1st) and the data dictionary.
+### **April 6th, 2025:** Documented list of changes
+Today I was able to recount all the changes and commits I made to the project documentation, and I was able to list them all here one by one and evaluate them as part of the Development section, under the title "Development Progress". I was able to finish all of this in a single day.
+### **April 7th, 2025:** Finished maintenance and final evaluation questions
+There are 7 questions that we needed to answer as part of the **Maintenance and Final Evaluation** sections. These 7 questions were all easy to answer, although some of the maintenance questions took me more time to think about and answer. However I was able to finish answering these questions relatively quickly.
+### **April 8th, 2025:** Finished structure chart and began working on Testing and Debugging
+Today I was able to create the structure chart for my program. I delayed doing the structure chart because I did not know which app/website I should use to make it, since when I search on Google for "Structure Chart maker" it always comes up with these organizational chart creators instead, which is completely irrelevant to what a structure chart is. Later I learnt from my friend **Victor Guo** that we are supposed to make them in Excalidraw, so I did. Creating this chart took me around 2 hours because first of all I had to learn how to use Excalidraw, then I had to figure out the proper way I should make it. Also, halfway through the first draft of the structure chart, I realised I have made a fatal and irreversible mistake in it. This meant I had to redo the whole thing from scratch again, hence the amount of time taken.
+
+But when I was finally finished, after I took a screenshot of it and uploaded it here, I still had some time to start the **Testing and Debugging** section, so I did. At the end of the day, I got up to the March 31st part of this section. I will be doing the rest tomorrow.
+### **April 9th, 2025:** Finished everything, ready for submission
+Last day to work on this project! Today I fully finished writing the Testing and Debugging section. This meant that I have technically finished the whole theory, but I had to end it off with some polishing to previous responses, as well as careful checks for any spelling mistakes, etc etc. When I was sure I can submit, I have submitted! **Congratulations to me! I've completed the whole task!!!**
 ## **Maintenance**
 ### 1. **Explain how you would handle issues caused by changes to the TMDb Movie API over time.**
 Depends on what type of issue it is, to be honest. First of all, I would subscribe to the TMDb API changelog to take attention of any upcoming API changes. Based on the severity of the issue, I would rewrite the code for the program that fits the newly-changed API. If the code can't be rewritten due to whatever reason, then I would search through the web and maybe use some third-party applications to debug issues. The most damaging one that I'm really worried about, however, is TMDb upgrading their API to a paid plan instead of a free plan, or increasing the rate limit for free APIs. Either way both of these issues shouldn't happen any time soon, but if they do, then we might have to shut the whole program down, sadly, or switch to a different API. (I really can't afford a monthly subscription for an API just to keep this program, which nobody uses, alive. I'm sorry)
