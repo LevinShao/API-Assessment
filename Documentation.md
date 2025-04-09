@@ -1574,12 +1574,12 @@ class TMDbMovieProgram: # will import this whole thing to main.py
             print("-" * 60)  # Divider line
             for idx, movie in enumerate(data["results"][:10], 1):
                 # For each movie in top 10 results, fetch and display their ID, title and release date
-                movie_id = movie.get('id', 'N/A')
+                rec_movie_id = movie.get('id', 'N/A')
                 title = movie.get('title', 'Untitled')
                 release_date = movie.get('release_date', 'No date available')
 
                 # Neatly format into a table
-                print(f"{idx:2}. ID: {movie_id:<8} | {title:<30} | {release_date}")
+                print(f"{idx:2}. ID: {rec_movie_id:<8} | {title:<30} | {release_date}")
             self.search_history.append((f"Recommendations for Movie ID: {movie_id}", datetime.now())) # Add to search history
         else:
             print("No recommendations found!") # When no data is available
@@ -1594,7 +1594,7 @@ class TMDbMovieProgram: # will import this whole thing to main.py
         print("\nSearch History:")
         # Loop through each entry in the search history storage, and provide details for each
         for idx, (query, time) in enumerate(self.search_history, 1):
-            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}") # Formatting: Year-Month-Day Hour-Minute-Second
 ```
 **Key Changes & Evaluation:**
 - Put all the functions (now I call them methods, I'll explain why later) into methods.py and the main user interface into main.py
@@ -1914,12 +1914,12 @@ class TMDbMovieProgram: # will import this whole thing to main.py
             print("-" * 60)  # Divider line
             for idx, movie in enumerate(data["results"][:10], 1):
                 # For each movie in top 10 results, fetch and display their ID, title and release date
-                movie_id = movie.get('id', 'N/A')
+                rec_movie_id = movie.get('id', 'N/A')
                 title = movie.get('title', 'Untitled')
                 release_date = movie.get('release_date', 'No date available')
 
                 # Neatly format into a table
-                print(f"{idx:2}. ID: {movie_id:<8} | {title:<30} | {release_date}")
+                print(f"{idx:2}. ID: {rec_movie_id:<8} | {title:<30} | {release_date}")
             self.search_history.append((f"Recommendations for Movie ID: {movie_id}", datetime.now())) # Add to search history
         else:
             print("No recommendations found!") # When no data is available
@@ -1934,7 +1934,7 @@ class TMDbMovieProgram: # will import this whole thing to main.py
         print("\nSearch History:")
         # Loop through each entry in the search history storage, and provide details for each
         for idx, (query, time) in enumerate(self.search_history, 1):
-            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}")
+            print(f"{idx}. {query} - Searched up on {time.strftime('%Y-%m-%d %H:%M:%S')}") # Formatting: Year-Month-Day Hour-Minute-Second
 
     def help_guide(self):
         """Option 8: A simple help guide for beginners, made using ONLY the print function"""
