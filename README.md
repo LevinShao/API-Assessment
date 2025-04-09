@@ -53,6 +53,7 @@ For this application, only the **requests** dependency is required, as it plays 
     ```
     pip install -r requirements.txt
     ```
+    **NOTE: MAKE SURE TO TAKE OUT REQUIREMENTS.TXT FROM ANY FOLDER IT IS IN, AS pip install -r requirements.txt WILL NOT WORK IF IT IS IN ANY FOLDER.**
 3. **Run the program!**
     ```
     python main.py
@@ -60,7 +61,7 @@ For this application, only the **requests** dependency is required, as it plays 
 ## **Configuration**
 The program comes pre-configured with a working API key. If you still want to use your own API key, follow these steps:
 
-1. Get a free API key from [TMDb](https://developer.themoviedb.org/reference/intro/getting-started).
+1. Get a free API key from [TMDb](https://developer.themoviedb.org/reference/intro/getting-started)
 2. Replace the api_key value in main.py with your own API key:
 
 ```python
