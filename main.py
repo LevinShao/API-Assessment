@@ -2,7 +2,7 @@ import time # just purely for aesthetics, nothing else
 # also, time (as well as datetime) are both part of the Python Standard Library and are installed by default.
 # they are included and pre-installed with Python by default, meaning that you won't have to install them at all
 # therefore they will not be included in the requirements.txt file since it should only contain third-party packages
-from methods import TMDbMovieProgram # Import the program from functions.py (integration)
+from methods import TMDbMovieProgram # Import the program from methods.py (integration)
 
 def main():
     """The main user interface for the program"""
