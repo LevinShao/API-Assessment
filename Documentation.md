@@ -1,5 +1,5 @@
-# **11ASE 2025 Task 1 - TMDb Movie Database Explorer**
-## By **Levin Shao**
+# **The TMDb Movie Database Explorer**
+## By **ProLemon99**
 ## **Requirements Definition**
 ### **Functional Requirements**
 * **Data Retrieval:** What does the user need to be able to view in the system? 
@@ -55,7 +55,7 @@ What could perhaps not crash the whole system, but could be an issue and needs t
 ## **Design**
 ### **Gantt Chart**
 ![Gantt Chart](images/GanttChart.png)
-
+### **Data Dictionary**
 | Variable | Data Type | Format for Display | Size in Bytes | Size for Display | Description | Example | Validation |
 |---|---|---|---|---|---|---|---|
 | Movie ID | integer | number | 4 | 10 | TMDb movie identifier number | 550 | Must be a positive integer |
@@ -74,7 +74,6 @@ What could perhaps not crash the whole system, but could be an issue and needs t
 | Cast | array | text | varies | 200 | List of actors that starred in the movie | Edward Norton as Narrator | Can be an array of objects |
 | Production Companies | array | text | varies | 100 | People/companies that played a key role in the production of the movie | Fox 2000 Pictures, Regency Enterprises... | No strict validations |
 | Genre ID | integer | number | varies | 50 | Like the movie IDs, but for genres instead | 28 | Must be a positive integer |
-
 ### **Pseudocode**
 ```
 BEGIN
@@ -241,7 +240,6 @@ BEGIN help_guide
   DISPLAY TIPS
 END help_guide
 ```
-
 ### How The Pseudocode Works
 First of all, the program initiates. Then the program displays the menu options (9 options in total, 8 excluding the last option which is to exit the program). The user chooses their desired option, then the program runs by beginning the part of the code/pseudocode that controls the function.
 

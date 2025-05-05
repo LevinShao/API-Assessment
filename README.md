@@ -32,7 +32,7 @@ For this application, only the **requests** dependency is required, as it plays 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/LevinShao/tmdb-movie-database-explorer.git
+   git clone https://github.com/ProLemon99/tmdb-movie-database-explorer.git
    cd tmdb-movie-database-explorer
    ```
    OR:
