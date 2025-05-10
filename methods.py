@@ -166,7 +166,7 @@ class TMDbMovieProgram: # will import this whole thing to main.py
             print("\nCurrent Popular Movies ( ID | Title | Release Date):")
             print("-" * 60)  # Divider line
             for idx, movie in enumerate(data["results"][:20], 1):
-                # For each movie in top 10 results, fetch and display their ID, title and release date
+                # For each movie in top 20 results, fetch and display their ID, title and release date
                 movie_id = movie.get('id', 'N/A')
                 title = movie.get('title', 'Untitled')
                 release_date = movie.get('release_date', 'No date available')
